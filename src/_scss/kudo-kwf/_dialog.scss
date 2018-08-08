@@ -1,0 +1,78 @@
+/*
+  Dialog
+
+  Description:
+  KWF Dialog component.
+*/
+
+//  --------------------
+//  dialog
+.dialog-overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: $dialog-z-index;
+  background-color: $dialog-wrapper-bg;
+  display: none;
+
+  .dialog-wrapper {
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .dialog {
+    align-self: center;
+    margin-right: $dialog-y-margin;
+    margin-left: $dialog-y-margin;
+    background: $dialog-background;
+    @include box-shadow(
+      (
+        0 16px 24px 2px rgba(0, 0, 0, 0.14),
+        0 6px 30px 5px rgba(0, 0, 0, 0.12),
+        0 8px 10px -5px rgba(0, 0, 0, 0.3)
+      )
+    );
+
+    .dialog-header {
+      padding: $base-width ($base-width * 3);
+      padding-top: $base-width * 3;
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        margin: 0;
+      }
+    }
+    .dialog-body {
+      padding: $base-width ($base-width * 3);
+      max-height: 80vh;
+      overflow: auto;
+    }
+    .dialog-footer {
+      padding: $base-width;
+    }
+
+    //  error dialog
+    &.dialog-error {
+      .dialog-header {
+        border-bottom: 1px solid $primary;
+        color: $primary;
+      }
+    }
+  } //  dialog
+
+  //  --------------------
+  //  active
+  &.active {
+    display: block;
+  }
+} // dialog-wrapper

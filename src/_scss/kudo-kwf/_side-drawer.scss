@@ -1,0 +1,137 @@
+/*
+  Side Drawer
+
+  Description:
+  KWF Side Drawer
+*/
+
+//  --------------------
+//  side drawer
+.side-drawer {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: $side-drawer-zindex;
+  top: 0;
+  left: 0;
+  background-color: rgba(0,0,0,0.5);
+  
+  //  content
+  .side-drawer-content {
+    position: absolute;
+    width: $side-drawer-width;
+    height: 100%;
+    background: $white;
+  }// .side-drawer-content
+  
+  //  menu
+  .side-drawer-menu {
+    margin: 0;
+    padding: 0;
+    
+    li {
+      display: block;
+      width: 100%;
+      margin-bottom: 0;
+
+      //  list divider
+      &.list-divider {
+        border-top:1px solid $gray-50;
+      }
+    }
+  }// .side-drawer-menu
+  
+  //  if active
+  &.active {
+    display: block;
+  }
+
+  //  --------------------
+  //  side drawer content
+  .side-drawer-user {
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+    position: relative;
+    padding: $base-width * 2;
+    color: #ffffff;
+
+    &:after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      background: rgba(0,0,0,0.42);
+    }
+
+    .avatar, p, a {
+      position: relative;
+      z-index: 2;
+      margin-bottom: 0;
+    }
+
+    .side-drawer-user-name {
+      margin-bottom: $base-width / 2;
+      padding-right: 30px;
+
+      &:after {
+        font-family: 'Material Icons';
+        font-size: $panel-expand-font-size;
+        content: "keyboard_arrow_right";
+        position: absolute;
+        top: 15px;
+        right: 0;
+      }
+    }
+    .side-drawer-user-id {
+      padding-right: 30px;
+      opacity: 0.7;
+    }
+  }//  .side-drawer-user
+
+  //  side drawer transaction
+  .side-drawer-transaction {
+    padding: $base-width * 2;
+    background: $primary;
+    color: #ffffff;
+
+    p {
+      margin:0;
+
+      small {
+        display: block;
+
+        &:first-child {
+          opacity: 0.7;
+        }
+      }
+    }
+  }//  .side-drawer-transaction
+
+  //  side drawer link
+  .side-drawer-link {
+    color: inherit;
+    display: block;
+    padding: ($base-width * 2);
+    
+    i, span {
+      display: inline-block;
+      vertical-align: middle;
+    }
+    
+    i {
+      margin-right: $base-width * 2;
+    }
+
+    //  disabled button
+    &.disabled {
+      opacity: 0.5;
+    }
+  }//  .side-drawer-link
+
+  
+}// .side-drawer

@@ -1,0 +1,226 @@
+// section {
+//   width: 100%;
+//   box-shadow: 0 2px $gray-50;
+//   padding: 16px;
+
+//   hgroup {
+//     margin-bottom: 8px;
+//   }
+// }
+  
+/*
+  Description:
+  Card component for KWF.
+*/
+
+//  --------------------
+//  cards
+.card {
+  overflow-y: hidden;
+}
+
+//  card category
+.card.card-category {
+  background-color: #ffffff;
+  @include border(1px solid $gray-50);
+  @include box-shadow();
+
+  .card-link {
+    color: inherit;
+  }
+  .card-image {
+    display: block;
+    width: 100%;
+  }
+  .card-title {
+    display: block;
+    padding: $card-padding 0;
+    text-align: center;
+  }
+}
+
+//  card promo
+.card.card-promo {
+  background-color: #ffffff;
+  @include border(1px solid $gray-50);
+  @include box-shadow();
+
+  .card-link {
+    color: inherit;
+  }
+  .card-image {
+    display: block;
+    width: 100%;
+  }
+  .card-title {
+    padding: $card-padding;
+    margin: 0;
+    display: block;
+  }
+
+  // if new card
+  &.card-new {
+    .card-title {
+      position: relative;
+      padding-right: 60px;
+
+      &:after {
+        content: 'BARU';
+        display: block;
+        position: absolute;
+        background: $negative;
+        color: $white;
+        padding: ($card-padding / 4) ($card-padding / 2);
+        margin: 0;
+        right: 10px;
+        top: 5px;
+        font-size: $font-small;
+      }
+    }
+  }
+}
+
+//  card product grid
+.card.card-product-grid {
+  padding: $card-padding;
+  background: $white;
+  position: relative;
+  @include border(1px solid $gray-50);
+  @include box-shadow();
+
+  .card-link {
+    color: inherit;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 2;
+  }
+
+  .card-image {
+    width: 100%;
+    padding-bottom: 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom: ($card-padding / 2);
+  }
+
+  .card-title {
+    display: block;
+    color: $gray;
+    margin: 0;
+    // height: (($base-font-size * 1.5) * 2);
+    margin-bottom: ($card-padding / 2);
+  }
+  .card-price {
+    display: block;
+    margin-bottom: ($card-padding / 2);
+  }
+  .card-commission {
+    display: block;
+    color: $positive;
+  }
+}
+
+//  card product detail
+.card.card-product-detail {
+  padding: $card-padding;
+  background: $white;
+  @include border(1px solid $gray-50);
+  @include box-shadow();
+
+  section {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .card-image {
+    width: $card-product-detail-image-size;
+    height: $card-product-detail-image-size;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    margin-right: $card-padding;
+    flex-shrink: 0;
+  }
+
+  .card-detail {
+    span,
+    h5 {
+      display: block;
+      margin-bottom: $card-padding / 2;
+      width: 100%;
+      text-overflow: ellipsis;
+    }
+    .card-title {
+      color: $black;
+    }
+    .card-subtitle {
+      color: $gray;
+    }
+    .card-price {
+      color: $black;
+    }
+    .card-commission {
+      color: $positive;
+    }
+  }
+
+  .card-link {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 2;
+  }
+
+  footer {
+    border-top: 1px solid $gray-50;
+    margin-left: -($base-width);
+    margin-right: -($base-width);
+    margin-top: $base-width;
+    margin-bottom: -($base-width);
+    padding: $base-width;
+    text-align: right;
+  }
+}
+
+//  card slider
+.card.card-slider {
+  .slider-wrapper {
+    max-width: 480px;
+    overflow: hidden;
+
+    &:after {
+      content: '';
+      display: block;
+      clear: both;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    .slides {
+      width: 3000px;
+
+      .slide {
+        width: 360px;
+        float: left;
+        margin-left: $card-slider-slide-padding;
+      }
+    }
+  }
+
+  // slides step
+  @for $i from 1 through 5 {
+    &.card-slider-step-#{$i} {
+      .slides {
+        margin-left: -($card-slider-step * $i);
+      }
+    }
+  }
+}

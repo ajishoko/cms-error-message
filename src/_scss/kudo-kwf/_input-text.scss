@@ -1,0 +1,92 @@
+@import 'variables';
+@import 'mixins';
+@import 'color';
+
+.input-text-wrapper {
+  display: flex;
+  margin-bottom: 16px;
+  
+  width: 100%;
+
+  div {
+    position: relative;
+    flex-grow: 1;
+  }
+
+  &.hidden {
+    visibility: hidden;
+  }
+
+  %input-text-shared {
+    font-size: 14px;
+    height: 40px;
+    width: 100%;
+    border: none;
+    border-bottom: medium solid $gray-label;
+
+    &:focus {
+      border-color: $primary;
+      outline: 0;
+
+      & + label {
+        color: $primary;
+      }
+    }
+
+    &:placeholder-shown {
+      & + label {
+        top: 16px;
+        visibility: hidden;
+      }
+    }
+
+    @each $colorName, $colorCode in $theme-color {
+      &.#{$colorName} {
+        border-color: $colorCode;
+
+        & + label {
+          color: $colorCode;
+        }
+      }
+    }
+  }
+
+  input {
+    // padding-top: 16px;
+    padding-left: 15px;
+    @extend %input-text-shared;
+  }
+
+  textarea {
+    padding-left: 15px;
+    padding-top: 10px;
+    height: 100px;
+    resize: none;
+    @extend %input-text-shared;
+  }
+
+  i {
+    padding: 24px 8px 0;
+    color: $gray-label;
+
+    &.visibility {
+      cursor: pointer;
+    }
+  }
+
+  label {
+    position: absolute;
+    left: 0;
+    padding: 4px;
+    font-size: 0.8rem;
+    color: $gray-label;
+
+    &.input {
+      top: 0;
+    }
+
+    &.textarea {
+      top: -20px;
+    }
+  }
+}

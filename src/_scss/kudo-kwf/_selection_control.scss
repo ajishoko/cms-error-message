@@ -1,0 +1,62 @@
+/*
+  Selection and Controls
+*/
+
+//  --------------------
+//  switch
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 30px;
+  height: 10px;
+  @include border-radius($border-radius-cup);
+  bottom: 10px;
+
+  // switch input
+  input[type='checkbox'] {
+    display: none;
+  }
+
+  .switch-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+    @include border-radius($border-radius-cup);
+  }
+
+  .switch-slider:before {
+    position: absolute;
+    content: '';
+    height: 15px;
+    width: 15px;
+    bottom: -2px;
+    left: 0;
+    right: auto;
+    background-color: white;
+    border: 1px solid $gray-50;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+    @include border-radius($border-radius-cup);
+  }
+
+  input:checked + .switch-slider {
+    background-color: rgba($positive, 0.4);
+  }
+
+  input:focus + .switch-slider {
+    box-shadow: 0 0 1px #2196f3;
+  }
+
+  input:checked + .switch-slider:before {
+    background-color: $positive;
+    border-color: $positive;
+    left: calc(100% - 15px);
+    right: auto;
+  }
+}

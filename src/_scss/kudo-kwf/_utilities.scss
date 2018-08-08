@@ -1,0 +1,225 @@
+/*
+  Utilities
+*/
+
+//  --------------------
+//  box shadow
+.box-shadow-0 {
+  box-shadow: none;
+}
+
+.box-shadow-1 {
+  @include box-shadow($box-shadow-1);
+}
+
+.box-shadow-2 {
+  @include box-shadow($box-shadow-2);
+}
+
+.box-shadow-3 {
+  @include box-shadow($box-shadow-3);
+}
+
+.box-shadow-4 {
+  @include box-shadow($box-shadow-4);
+}
+
+.box-shadow-5 {
+  @include box-shadow($box-shadow-5);
+}
+
+//  --------------------
+//  width
+@for $i from 1 through 10 {
+  .width-#{ $i * 10 } {
+    width: ($i * 10) + 0%;
+  }
+}
+
+//  --------------------
+//  height
+@for $i from 1 through 10 {
+  .height-#{ $i * 10 } {
+    height: ($i * 10) + 0%;
+  }
+}
+
+//  --------------------
+//  padding
+@for $i from 0 through 5 {
+  //  all side padding
+  .p-#{$i} {
+    padding: $i * $base-width;
+  }
+}
+@for $i from 0 through 5 {
+  //  padding top
+  .pt-#{$i} {
+    padding-top: $i * $base-width;
+  }
+}
+@for $i from 0 through 5 {
+  //  padding right
+  .pr-#{$i} {
+    padding-right: $i * $base-width;
+  }
+}
+@for $i from 0 through 5 {
+  //  padding bottom
+  .pb-#{$i} {
+    padding-bottom: $i * $base-width;
+  }
+}
+@for $i from 0 through 5 {
+  //  padding left
+  .pl-#{$i} {
+    padding-left: $i * $base-width;
+  }
+}
+@for $i from 0 through 5 {
+  //  padding x (left and right)
+  .px-#{$i} {
+    padding-left: $i * $base-width;
+    padding-right: $i * $base-width;
+  }
+}
+@for $i from 0 through 5 {
+  //  padding y (top and bottom)
+  .py-#{$i} {
+    padding-top: $i * $base-width;
+    padding-bottom: $i * $base-width;
+  }
+}
+
+//  --------------------
+//  margin
+@for $i from 0 through 5 {
+  //  generate margin
+  .m-#{$i} {
+    margin: $i * $base-width;
+  }
+}
+@for $i from 0 through 5 {
+  .mt-#{$i} {
+    margin-top: $i * $base-width;
+  }
+}
+@for $i from 0 through 5 {
+  .mr-#{$i} {
+    margin-right: $i * $base-width;
+  }
+}
+@for $i from 0 through 5 {
+  .mb-#{$i} {
+    margin-bottom: $i * $base-width;
+  }
+}
+@for $i from 0 through 5 {
+  .ml-#{$i} {
+    margin-left: $i * $base-width;
+  }
+}
+@for $i from 0 through 5 {
+  //  margin x (left and right)
+  .mx-#{$i} {
+    margin-left: $i * $base-width;
+    margin-right: $i * $base-width;
+  }
+}
+@for $i from 0 through 5 {
+  //  margin y (top and bottom)
+  .my-#{$i} {
+    margin-top: $i * $base-width;
+    margin-bottom: $i * $base-width;
+  }
+}
+
+//  --------------------
+//  float
+.float-left {
+  float: left;
+}
+.float-right {
+  float: right;
+}
+.clearfix {
+  width: 100%;
+  display: block;
+  clear: both;
+}
+
+//  --------------------
+//  position
+.position-static {
+  position: static;
+}
+.position-relative {
+  position: relative;
+}
+.position-absolute {
+  position: absolute;
+}
+.position-fixed {
+  position: fixed;
+}
+
+//  --------------------
+//  display
+.d-none,
+.hidden {
+  display: none;
+}
+.d-block {
+  display: block;
+}
+.d-inline {
+  display: inline;
+}
+.d-inline-block {
+  display: inline-block;
+}
+
+//  --------------------
+//  rounded border
+.rounded {
+  @include border-radius($border-radius);
+}
+.rounded-cup {
+  @include border-radius(($border-radius-cup));
+}
+.rounded-circle {
+  @include border-radius(50%);
+}
+
+//  --------------------
+//  border
+.border-0 {
+  border: none;
+}
+
+.border {
+  border-width: $border-width;
+  border-style: $border-style;
+  border-color: $gray;
+
+  //  border-color
+  @each $colorName, $colorCode in $theme-color {
+    &.border-#{$colorName} {
+      border-color: $colorCode;
+    }
+  }
+}
+
+//  --------------------
+//  opacity
+@for $i from 0 through 10 {
+  .opacity-#{$i} {
+    opacity: $i * 0.1;
+  }
+}
+
+//  --------------------
+//  no scroll
+.no-scroll {
+  overflow: hidden;
+}

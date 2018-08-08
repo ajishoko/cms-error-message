@@ -1,0 +1,52 @@
+/*
+  Avatar
+
+  Description:
+  KWF Avatar component.
+*/
+
+//  --------------------
+//  avatar
+.avatar {
+  width: 24px;
+  height: 24px;
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  @include border-radius(100%);
+
+  //  image
+  img {
+    width: 100%;
+  }
+
+  //  status
+  i {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    // background: $white;
+    font-size: $avatar-icon-size;
+    padding: $avatar-icon-padding;
+    @include border(2px solid $white);
+    @include border-radius(100%);
+  }
+
+  //  sizing
+  &.avatar-small {
+    width: 16px;
+    height: 16px;
+  }
+  &.avatar-medium {
+    width: 24px;
+    height: 24px;
+  }
+  &.avatar-large {
+    width: 64px;
+    height: 64px;
+  }
+  &.avatar-xl {
+    width: 96px;
+    height: 96px;
+  }
+}

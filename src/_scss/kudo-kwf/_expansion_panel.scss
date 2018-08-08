@@ -1,0 +1,74 @@
+/*
+  Expansion Panel
+
+  Description:
+  KWF Expansion Panel Component.
+*/
+
+//  --------------------
+//  expansion panel
+.panel {
+  background-color: $white;
+  @if $panel-border {
+    border: 1px solid $panel-border-color;
+  }
+
+  //  panel header
+  .panel-header {
+    padding: $panel-padding;
+    background: $panel-background;
+    padding-right: 50px;
+    position: relative;
+
+    //  expand button
+    &:after {
+      font-family: 'Material Icons';
+      font-size: $panel-expand-font-size;
+      content: 'expand_more';
+      position: absolute;
+      top: 15px;
+      right: 10px;
+      opacity: 0.54;
+    }
+
+    .panel-title {
+      margin: 0;
+    }
+    .panel-subtitle {
+      margin-top: $base-width;
+      color: $gray;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+
+  //  panel content
+  .panel-content {
+    padding: 0 $panel-padding;
+    height: 0;
+    overflow: hidden;
+  }
+
+  //  if panel expanded
+  &.panel-expanded {
+    .panel-header {
+      &:after {
+        content: 'expand_less';
+      }
+    }
+    .panel-content {
+      border-top: $panel-content-top-border;
+      padding: $panel-padding;
+      height: auto;
+    }
+  }
+}
+
+//  expansion panel group
+.panel-group {
+  .panel + .panel {
+    border-top: $panel-group-top-border;
+  }
+}

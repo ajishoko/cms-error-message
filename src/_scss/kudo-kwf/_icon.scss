@@ -1,0 +1,145 @@
+/*
+  Icon
+
+  Description:
+  KWF Icons
+*/
+
+//  --------------------
+//  KWF icons
+.kwf-icon {
+  width: 40px;
+  height: 40px;
+  background-image: url('/public/img/svg_sprite_subcategories_2.svg');
+  background-repeat: no-repeat;
+  display: inline-block;
+
+  //  icon list
+  &.icon-pln {
+    background-position: 0 0px;
+  }
+  &.icon-pdam {
+    background-position: -40px 0px;
+  }
+  &.icon-telepon-rumah {
+    background-position: -81px 0px;
+  }
+  &.icon-hp-pascabayar {
+    background-position: -120px 0px;
+  }
+  &.icon-asuransi {
+    background-position: -200px -40px;
+  }
+  &.icon-bpjs {
+    background-position: -160px -80px;
+  }
+  &.icon-multifinance {
+    background-position: -240px -40px;
+  }
+  &.icon-pulsa {
+    background-position: -160px 0px;
+  }
+  &.icon-token-pln {
+    background-position: -240px 0px;
+  }
+  &.icon-voucher-game {
+    background-position: -440px -40px;
+  }
+  &.icon-barang-elektronik {
+    background-position: -320px 0px;
+  }
+  &.icon-fesyen {
+    background-position: -360px 0px;
+  }
+  &.icon-supermarket {
+    background-position: -320px -40px;
+  }
+  &.icon-rumah-tangga {
+    background-position: -440px 0px;
+  }
+  &.icon-sehat-cantik {
+    background-position: -280px -40px;
+  }
+  &.icon-kartu-perdana {
+    background-position: -240px -80px;
+  }
+  &.icon-perlengkapan-kantor {
+    background-position: -360px -40px;
+  }
+  &.icon-kupon-voucher {
+    background-position: -480px 0px;
+  }
+  &.icon-kebutuhan-ibu-anak {
+    background-position: 0px -40px;
+  }
+  &.icon-pesawat {
+    background-position: -40px -40px;
+  }
+  &.icon-pendaftaran-pengemudi {
+    background-position: -120px -40px;
+  }
+  &.icon-topup-pengemudi {
+    background-position: -160px -40px;
+  }
+  &.icon-daftar-asuransi {
+    background-position: -120px -80px;
+  }
+  &.icon-dana-cepat {
+    background-position: -80px -80px;
+  }
+  &.icon-kirim-uang {
+    background-position: -200px 0px;
+  }
+  &.icon-menabung {
+    background-position: -280px 0px;
+  }
+  &.icon-emas-perhiasan {
+    background-position: -400px 0px;
+  }
+  &.icon-otomotif {
+    background-position: -520px 0;
+  }
+  &.icon-hobi {
+    background-position: -560px 0;
+  }
+  &.icon-kereta-api {
+    background-position: -80px -40px;
+  }
+  &.icon-grosir {
+    background-position: -400px -40px;
+  }
+  &.icon-paket-data {
+    background-position: -480px -40px;
+  }
+  &.icon-rekam-dana {
+    background-position: -520px -40px;
+  }
+  &.icon-rekam-transaksi {
+    background-position: -560px -40px;
+  }
+  &.icon-rekam-komisi {
+    background-position: 0px -80px;
+  }
+  &.icon-tarik-tunai {
+    background-position: -40px -80px;
+  }
+}
+
+//  --------------------
+//  dot badge
+.has-dot-badge {
+  position: relative;
+
+  &:after {
+    content: '';
+    background: red;
+    position: absolute;
+    top: -3px;
+    right: -3px;
+    z-index: 2;
+    width: 12px;
+    height: 12px;
+    border: 2px solid $primary;
+    @include border-radius(100%);
+  }
+}

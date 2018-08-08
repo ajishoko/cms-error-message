@@ -1,0 +1,496 @@
+@import 'kudo-kwf/kudo-kwf';
+
+/**
+ * variables
+ */
+$border-default-color: #cacaca;
+$border-default: 1px solid $border-default-color;
+
+/**
+ * General styling
+ */
+body {
+  background-color: #f3f3f3;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.input-wrapper {
+  margin-bottom: 8px;
+}
+
+input[type='text'],
+input[type='password'] {
+  display: block;
+  height: 100%;
+  padding: 0 15px;
+}
+
+.input-text-wrapper,
+.dropdown-wrapper {
+  background: #ffffff;
+  border: $border-default;
+  @include border-radius(2px);
+
+  input,
+  textarea,
+  .dropdown {
+    border-bottom: none;
+  }
+}
+
+.dropdown-wrapper {
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 40px;
+}
+
+.react-datepicker-wrapper {
+  input {
+    background: #ffffff;
+    height: 40px;
+    border: $border-default;
+  }
+}
+
+.dropdown-wrapper .dropdown {
+  border-bottom-color: #9e9e9e;
+}
+
+input,
+textarea {
+  background-color: transparent;
+}
+
+#root {
+  height: 100%;
+  min-height: 100%;
+}
+
+/**
+ * Loading page
+ */
+.loading-page {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .loading-content {
+    text-align: center;
+  }
+}
+
+/**
+ * Pop menu
+ */
+.popmenu {
+  position: relative;
+
+  .popmenu-trigger {
+    position: relative;
+    padding-right: 15px;
+
+    &:after {
+      position: absolute;
+      right: 0;
+      font-family: 'Material Icons';
+      font-size: $panel-expand-font-size;
+      content: 'arrow_drop_down';
+    }
+  }
+
+  .popmenu-content {
+    position: absolute;
+    top: 100%;
+    z-index: 2;
+    background: $white;
+    padding: $base-width;
+    width: 100%;
+    display: none;
+
+    &.active {
+      display: block;
+    }
+
+    a {
+      padding: ($base-width) ($base-width * 2);
+      display: block;
+      color: $gray;
+
+      &:hover {
+        background: rgba($gray, 0.1);
+      }
+    }
+  }
+}
+
+/**
+ * Side drawer
+ */
+.side-drawer {
+  display: block;
+  position: static;
+  background-color: $primary;
+  color: #ffffff;
+  overflow: hidden;
+
+  .side-drawer-content {
+    width: 100%;
+    position: static;
+    background-color: $primary;
+  }
+
+  .side-drawer-user:after {
+    background: none;
+    display: none;
+  }
+
+  .side-drawer-transaction {
+    background-color: $secondary;
+  }
+
+  // side drawer menu
+  .side-drawer-list > ul {
+    padding: 0;
+    margin: 0;
+
+    & > li {
+      border-left: 5px solid $primary;
+    }
+
+    & > .active {
+      background-color: #215599;
+      border-color: $tertiary;
+    }
+
+    & > li.has-menu {
+      position: relative;
+
+      ul {
+        margin: 0;
+        padding: 0;
+        padding-left: 40px;
+        display: none;
+
+        & > i {
+          display: none;
+        }
+
+        .active {
+          font-weight: 600;
+        }
+      }
+
+      &:after {
+        font-family: 'Material Icons';
+        font-size: $panel-expand-font-size;
+        content: 'expand_more';
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        color: #ffffff;
+      }
+
+      &.active {
+        ul {
+          display: block;
+        }
+
+        &:after {
+          font-family: 'Material Icons';
+          font-size: $panel-expand-font-size;
+          content: 'expand_less';
+          position: absolute;
+          top: 15px;
+          right: 15px;
+          color: #ffffff;
+        }
+      }
+    }
+  }
+}
+
+.btn {
+  &.btn-sm {
+    font-size: 10px;
+    padding: ($base-width) ($base-width);
+  }
+}
+
+/**
+ * flash message
+ */
+.flash {
+  padding: ($base-width * 3);
+
+  @each $colorName, $colorCode in $theme-color {
+    &.flash-#{$colorName} {
+      background-color: rgba($colorCode, 0.2);
+      color: $colorCode;
+    }
+  }
+}
+
+/**
+ * Highlight
+ */
+.highlight {
+  background-color: #d8d8d8;
+  padding: ($base-width * 2) ($base-width * 3);
+
+  span {
+    display: block;
+    margin-bottom: $base-width * 2;
+  }
+  h3 {
+    margin-bottom: 0;
+  }
+
+  // theme
+  @each $themeName, $themeColor in $theme-color {
+    &.highlight-#{$themeName} {
+      background-color: $themeColor;
+      color: $white;
+    }
+  }
+}
+
+/**
+ * Vertical align
+ */
+.vertical-align-middle {
+  vertical-align: middle;
+}
+
+/**
+ * Tag
+ */
+.tag {
+  color: $white;
+  padding: ($base-width / 2) $base-width;
+  @include border-radius(2px);
+
+  @each $colorName, $colorCode in $theme-color {
+    &.tag-#{$colorName} {
+      background-color: $colorCode;
+    }
+  }
+}
+
+/**
+ * Table
+ */
+
+table {
+  width: 100%;
+
+  thead {
+    background: #ececec;
+  }
+
+  tbody {
+    td {
+      text-align: center;
+    }
+
+    tr:nth-child(even) {
+      background: #ececec;
+    }
+  }
+}
+
+/**
+ * List Filtering
+ */
+.list-filter {
+  background-color: #deecee;
+  padding: $base-width * 2;
+  border: 2px solid #9cd7da;
+  @include border-radius(4px);
+}
+
+.list-detail {
+  color: $gray;
+}
+
+.filter-label {
+  display: flex;
+  align-items: center;
+  height: 50px;
+}
+
+.form-label {
+  font-weight: bold;
+}
+
+.dropdown-wrapper .menu-items {
+  left: 0;
+  top: calc(100% + 2px);
+}
+
+.filter-datepicker {
+  display: block;
+  width: 100%;
+  
+  .react-datepicker-wrapper {
+    display: block;
+    width: 100%;
+    
+    .react-datepicker__input-container {
+      display: block;
+
+      input {
+        display: block; 
+        width: 100%;
+      }
+    }
+  }
+}
+
+/**
+ * Pagination
+ */
+.pagination {
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+
+    li {
+      border: 1px solid rgba($gray, 0.5);
+      display: block;
+      float: left;
+      color: rgba($gray, 0.5);
+
+      a {
+        padding: $base-width;
+        display: block;
+        color: inherit;
+      }
+
+      .disabled {
+        background: #e8e8e8;
+      }
+
+      &:first-child {
+        border-top-left-radius: 2px;
+        border-bottom-left-radius: 2px;
+      }
+      &:last-child {
+        border-top-right-radius: 2px;
+        border-bottom-right-radius: 2px;
+      }
+    }
+  }
+}
+
+/**
+ * page class
+ */
+.page-wrapper {
+  // height: 100%;
+  min-height: 100%;
+  display: flex;
+
+  // --------------------
+  // page aside
+  .page-aside {
+    width: 0;
+
+    // if active
+    &.active {
+      width: 300px;
+    }
+  }
+
+  // page main
+  .page-main {
+    width: 100%;
+  }
+
+  // --------------------
+  // page header
+  .page-header {
+    background: #ffffff;
+    padding: 16px 32px;
+    border-bottom: $border-default;
+
+    i.material-icons {
+      cursor: pointer;
+      border: 1px solid $gray;
+      padding: $base-width / 2;
+      margin-right: $base-width;
+      @include border-radius(2px);
+
+      &.active {
+        background: $primary;
+        border-color: $primary;
+        color: #ffffff;
+      }
+    }
+
+    h3 {
+      margin-bottom: 0;
+    }
+  }
+
+  // page title
+  .page-title {
+    background: #ffffff;
+    padding: 16px 32px;
+    border-bottom: $border-default;
+
+    h1 {
+      margin-bottom: 8px;
+    }
+  }
+
+  // page body
+  .page-body {
+    padding: ($base-width * 2) ($base-width * 3);
+  }
+}
+
+/**
+ * page login
+ */
+.page-login {
+  height: 100%;
+
+  h1 {
+    color: #4a4a4a;
+  }
+
+  .form-wrapper {
+    width: 100%;
+    max-width: 335px;
+
+    form {
+      padding: 16px;
+      background: #ffffff;
+
+      .input-text-wrapper i {
+        padding-top: 12px;
+        padding-bottom: 12px;
+      }
+      
+    }
+
+    footer {
+      color: #777;
+    }
+  }
+
+
+
+  .flex-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+}

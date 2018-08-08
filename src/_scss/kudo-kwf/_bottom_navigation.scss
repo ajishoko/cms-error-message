@@ -1,0 +1,48 @@
+/*
+  Bottom Navigation
+
+  Description:
+  KWF Bottom Navigation component.
+*/
+
+//  --------------------
+//  Bottom navigation
+.bottom-navigation {
+  background-color: $primary;
+  height: $bottom-navigation-height;
+  color: #FFFFFF;
+  width: 100%;
+  max-width: 480px;
+  position: fixed;
+  bottom: 0;
+  left: inherit;
+  z-index: 100;
+  color: $white;
+  
+  //  if hide
+  &.hide {
+    bottom: -($bottom-navigation-height);
+  }
+  
+  .bottom-navigation-content {
+    @include flexbox();
+    height: 100%;
+
+    .col {
+      align-self: center;
+    }
+
+    .menu-inactive {
+      opacity: 0.5;
+    }
+  }
+
+  p {
+    margin-bottom: 0;
+    line-height: $base-font-size;
+  }
+  
+  a {
+    color: inherit;
+  }
+}

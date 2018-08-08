@@ -1,0 +1,43 @@
+/*
+  Colors
+*/
+
+//  --------------------
+//  generate root color for css color variable
+:root {
+  @each $colorName, $colorCode in $theme-color {
+    --#{$colorName}: $colorCode;
+    --#{$colorName}-dark: darken(saturate(adjust-hue($colorCode, 4), 6.51), 11.18);
+    --#{$colorName}-light: lighten(saturate(adjust-hue($colorCode, 6), 6.51), 26.27);
+  }
+}
+
+//  generate colors
+@each $colorName, $colorCode in $theme-color {
+  .color-#{$colorName} {
+    color: $colorCode;
+  }
+  //  dark color
+  .color-#{$colorName}-dark {
+    color: darken(saturate(adjust-hue($colorCode, 4), 6.51), 11.18);
+  }
+  //  light color
+  .color-#{$colorName}-light {
+    color: lighten(saturate(adjust-hue($colorCode, 6), 6.51), 26.27);
+  }
+}
+
+//  generate background colors
+@each $colorName, $colorCode in $theme-color {
+  .bg-#{$colorName} {
+    background-color: $colorCode;
+  }
+  //  dark background color
+  .bg-#{$colorName}-dark {
+    background-color: darken(saturate(adjust-hue($colorCode, 4), 6.51), 11.18);
+  }
+  //  light background color
+  .bg-#{$colorName}-light {
+    background-color: lighten(saturate(adjust-hue($colorCode, 6), 6.51), 26.27);
+  }
+}

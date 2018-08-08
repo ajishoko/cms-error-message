@@ -1,0 +1,133 @@
+/*
+  Appbar
+
+  Description:
+  KWF Appbar component.
+*/
+
+//  --------------------
+//  placeholder appbar
+%appbar {
+  background-color: $primary;
+  height: $appbar-height;
+  color: #ffffff;
+  position: fixed;
+  width: 100%;
+  max-width: 480px;
+  top: 0;
+  padding-left: ($base-width);
+  padding-right: ($base-width);
+  z-index: 100;
+}
+
+//  body class
+
+//  --------------------
+//  appbar
+.appbar {
+  @extend %appbar;
+
+  //  appbar top
+  .appbar--top {
+    display: flex;
+    align-items: center;
+    padding-top: 16px;
+  }
+
+  //  appbar additional
+  .appbar--additional {
+    background: $white;
+    margin-left: -($base-width);
+    margin-right: -($base-width);
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+
+    //  type button group
+    &.btn-group {
+      & > .col,
+      & > [class*='col-'] {
+        padding-right: 0;
+        padding-left: 0;
+      }
+
+      .btn {
+        color: $gray;
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        padding-top: 1.5 * ($base-width);
+        padding-bottom: 1.5 * ($base-width);
+        @include box-shadow(none);
+
+        i,
+        span {
+          display: inline-block;
+          vertical-align: middle;
+        }
+      }
+    }
+
+    //  type tab
+    &.btn-tab {
+      background-color: $primary;
+      text-align: center;
+      padding: $base-width;
+
+      .btn {
+        display: block;
+        width: 100%;
+        @include box-shadow(none);
+        @include border-radius($base-width * 10);
+        opacity: 0.5;
+
+        &.active {
+          background-color: $white;
+          color: $primary;
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+//  --------------------
+//  search bar
+.search-bar {
+  @extend %appbar;
+  background-color: $white;
+  z-index: 101;
+
+  //  search bar content
+  .search-bar--content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+
+    a {
+      color: $gray;
+    }
+  }
+}
+
+// Without using classes.
+header {
+  @extend %appbar;
+  display: flex;
+  padding-top: 16px;
+
+  a {
+    color: $white;
+  }
+
+  div {
+    flex: 1;
+    text-align: center;
+    padding-top: 4px;
+
+    a {
+      padding: 4px 8px;
+    }
+  }
+}

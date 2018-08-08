@@ -1,0 +1,31 @@
+/*
+  Layout
+
+  Description:
+  Building block for KWF Layout.
+*/
+
+//  --------------------
+//  general layout
+
+//  page container
+.page-container {
+  width: 100%;
+  padding-top: $appbar-height;
+  padding-bottom: $bottom-navigation-height;
+
+  //  no header
+  &.no-header {
+    padding-top: 0;
+  }
+}
+
+//  section container
+.section-container {
+  padding-left: ($base-width * 2);
+  padding-right: ($base-width * 2);
+}
+.section-container-narrow {
+  padding-left: $base-width;
+  padding-right: $base-width;
+}
